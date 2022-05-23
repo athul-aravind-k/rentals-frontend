@@ -1,0 +1,114 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col login-left"></div>
+    <div class="col login-right d-flex justify-content-center">
+      <div class="row d-flex justify-content-center">
+        <div class="col-6 text-center login-modal">
+          <h1 class="pt-3 text-center"><b> SIGN IN</b></h1>
+          <div [formGroup]="loginForm">
+            <mat-form-field class="col-12 col-lg-8" appearance="outline">
+              <mat-label>Email</mat-label>
+              <input
+                type="email"
+                matInput
+                formControlName="userId"
+                placeholder="Ex. pat@example.com"
+              />
+              <mat-error
+                *ngIf="
+                  loginForm.hasError('email') && !loginForm.hasError('required')
+                "
+              >
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="loginForm.hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field class="col-12 col-lg-8" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input
+                matInput
+                formControlName="password"
+                [type]="hide ? 'password' : 'text'"
+              />
+              <button
+                mat-icon-button
+                matSuffix
+                (click)="hide = !hide"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+              >
+                <mat-icon>{{
+                  hide ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </button>
+              <mat-error *ngIf="loginForm.hasError('required')">
+                Password is <strong>required</strong>
+              </mat-error>
+              <mat-hint>Use a Strong Password</mat-hint>
+            </mat-form-field>
+            <button
+              class="btn-primary mb-4 m-3 col-6"
+              mat-raised-button
+              (click)="submit()"
+            >
+              Log In
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="grid-container">
+  <div class="grid-child loginLeft"></div>
+
+  <div class="grid-child loginRight align-items-center">
+    <div class="card text-center login-card align-items-center">
+      <div class="text-center pt-3 loginText col-12">
+        <h1>LOG IN</h1>
+      </div>
+      <div class="col-auto">
+        <form class="form" [formGroup]="loginForm">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input
+              type="email"
+              matInput
+              formControlName="userId"
+              placeholder="Ex. pat@example.com"
+            />
+            <mat-hint>hint!</mat-hint>
+            <mat-error
+              *ngIf="
+                loginForm.hasError('email') && !loginForm.hasError('required')
+              "
+            >
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="loginForm.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput formControlName="password" />
+            <mat-hint>hint!</mat-hint>
+            <mat-error *ngIf="loginForm.hasError('required')">
+              Password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <button
+            class="btn-success m-3 col-6"
+            mat-raised-button
+            (click)="submit()"
+          >
+            Log In
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->

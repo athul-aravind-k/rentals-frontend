@@ -1,0 +1,30 @@
+.login-left {
+  background-color: lightgreen;
+  height: 100vh;
+}
+.login-right {
+  background-color: #646464;
+}
+
+.login-modal {
+  border-radius: 15px;
+  background-color: #e8e8e8;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.btn {
+  background-color: rgb(28, 2, 143);
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: rgb(0, 0, 0) !important;
+  // opacity: 1!important;
+}
+mat-label,
+mat-hint {
+  color: rgba(0, 0, 0, 0.555);
+}
+::placeholder {
+  color: rgba(0, 0, 0, 0.555);
+}
