@@ -1,3 +1,4 @@
+import { NgToastService } from 'ng-angular-popup';
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
@@ -5,6 +6,9 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { first } from 'rxjs';
+import { AuthenticationService } from 'src/app/core/auth/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -12,20 +16,57 @@ import {
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  public hide = true;
+  public hidePassword = true;
+  private returnUrl: string = '';
   loginForm = new FormGroup({
     userId: new FormControl(),
     password: new FormControl(),
   });
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthenticationService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private toast: NgToastService
+  ) {
+    //redirects to home if already logged in
+    if (this.authService.currentUserValue) {
+      this.router.navigate(['/rentals']);
+    }
+  }
 
   ngOnInit(): void {
     this.createForm();
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   public submit(): void {
-    console.log(this.loginForm.getRawValue());
+    if (this.loginForm.invalid) {
+      return;
+    }
+    this.authService
+      .login(
+        this.loginForm.get('userId')?.value,
+        this.loginForm.get('password')?.value
+      )
+      .pipe(first())
+      .subscribe(
+        (data) => {
+          if (data) {
+            console.log(data);
+            this.toast.success({
+              detail: 'Success',
+              summary: 'Login Success',
+              duration: 5000,
+            });
+          }
+        },
+        (error) => {
+          console.log(error);
+        }
+        // this.router.navigate([this.returnUrl]);
+      );
   }
 
   private createForm(): void {
