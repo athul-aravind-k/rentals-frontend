@@ -60,12 +60,12 @@ export class LoginComponent implements OnInit {
               summary: 'Login Success',
               duration: 5000,
             });
+            this.router.navigate([this.returnUrl]);
           }
         },
         (error) => {
           console.log(error);
         }
-        // this.router.navigate([this.returnUrl]);
       );
   }
 
