@@ -24,9 +24,20 @@ export class ErrorInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
       tap((evt) => {
-        if (evt instanceof HttpResponse) {
-          if (evt.body && evt.body.errorMessage) {
-            this.showErrorMessage(evt.body.errorMessage);
+        const timeStamp = JSON.parse(localStorage.getItem('timeStamp') || '{}');
+        const currentDate = new Date();
+        if (timeStamp) {
+          const currentTimeStamp = currentDate.getTime();
+          if (currentTimeStamp - timeStamp > 30 * 60000) {
+            this.showErrorMessage('Session Expired Please Login Again');
+            this.authenticationService.logout();
+          } else {
+            this.setTimeStamp();
+            if (evt instanceof HttpResponse) {
+              if (evt.body && evt.body.errorMessage) {
+                this.showErrorMessage(evt.body.errorMessage);
+              }
+            }
           }
         }
       }),
@@ -42,7 +53,13 @@ export class ErrorInterceptor implements HttpInterceptor {
     );
   }
 
-  private showErrorMessage(error: any) {
+  private showErrorMessage(error: any): void {
     this.toast.error({ detail: 'Error', summary: error, duration: 10000 });
+  }
+
+  private setTimeStamp(): void {
+    const date = new Date();
+    const timeStamp = date.getTime();
+    localStorage.setItem('timeStamp', JSON.stringify(timeStamp));
   }
 }

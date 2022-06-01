@@ -31,14 +31,15 @@ export class LoginComponent implements OnInit {
     private toast: NgToastService
   ) {
     //redirects to home if already logged in
-    if (this.authService.currentUserValue) {
+    if (this.authService.getCurrentUserToken()) {
       this.router.navigate(['/rentals']);
     }
   }
 
   ngOnInit(): void {
     this.createForm();
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.returnUrl =
+      this.route.snapshot.queryParams['returnUrl'] || '/rentals/dashboard';
   }
 
   public submit(): void {
@@ -64,7 +65,11 @@ export class LoginComponent implements OnInit {
           }
         },
         (error) => {
-          console.log(error);
+          this.toast.error({
+            detail: 'Error',
+            summary: error,
+            duration: 10000,
+          });
         }
       );
   }
