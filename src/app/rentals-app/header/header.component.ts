@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from './../../core/auth/authentication.service';
+import { LoaderService } from './../../core/loader/loader.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,16 @@ import { AuthenticationService } from './../../core/auth/authentication.service'
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(private authService: AuthenticationService) {}
+  public loading: boolean = false;
+
+  constructor(
+    private authService: AuthenticationService,
+    private loaderService: LoaderService
+  ) {
+    this.loaderService.isLoading.subscribe((loadingStatus) => {
+      this.loading = loadingStatus;
+    });
+  }
 
   ngOnInit(): void {}
 

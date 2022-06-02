@@ -1,5 +1,9 @@
 <div class="">
   <nav class="navbar navbar-dark bg-dark">
+    <div class="logo row">
+      <i class="fa-solid fa-registered fa-2xl mt-3 pt-1"></i>
+      <h1 class="pt-1">entals</h1>
+    </div>
     <div class="log-out-logo">
       <i
         class="fa-solid fa-right-from-bracket fa-2xl pt-3 pb-3 p-2"
@@ -8,4 +12,9 @@
       ></i>
     </div>
   </nav>
+  <mat-progress-bar
+    color="primary"
+    mode="indeterminate"
+    *ngIf="loading"
+  ></mat-progress-bar>
 </div>

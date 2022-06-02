@@ -8,9 +8,12 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptor } from './core/jwt-interceptor/jwt.interceptor';
 import { ErrorInterceptor } from './core/error-interceptor/error.interceptor';
 import { NgToastModule } from 'ng-angular-popup';
+import { LoaderInterceptor } from './core/loader/loader.interceptor.service';
+import { LoaderService } from './core/loader/loader.service';
+import { LoaderComponent } from './core/loader/loader.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoaderComponent],
   imports: [
     BrowserModule,
     MaterialModule,
@@ -20,8 +23,10 @@ import { NgToastModule } from 'ng-angular-popup';
     NgToastModule,
   ],
   providers: [
+    LoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -19,6 +19,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -34,48 +35,45 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-
 const materials = [
-    CdkTreeModule,
-    MatAutocompleteModule,
-    MatButtonModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatChipsModule,
-    MatDividerModule,
-    MatExpansionModule,
-    MatIconModule,
-    MatInputModule,
-    MatListModule,
-    MatMenuModule,
-    MatProgressSpinnerModule,
-    MatPaginatorModule,
-    MatRippleModule,
-    MatSelectModule,
-    MatSidenavModule,
-    MatSnackBarModule,
-    MatSortModule,
-    MatTableModule,
-    MatTabsModule,
-    MatToolbarModule,
-    MatFormFieldModule,
-    MatButtonToggleModule,
-    MatTreeModule,
-    OverlayModule,
-    PortalModule,
-    MatBadgeModule,
-    MatGridListModule,
-    MatRadioModule,
-    MatDatepickerModule,
-    MatTooltipModule
-  ]
-
+  CdkTreeModule,
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatPaginatorModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatFormFieldModule,
+  MatButtonToggleModule,
+  MatTreeModule,
+  OverlayModule,
+  PortalModule,
+  MatBadgeModule,
+  MatGridListModule,
+  MatRadioModule,
+  MatDatepickerModule,
+  MatTooltipModule,
+];
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,...materials
-  ],
-  exports:materials
+  imports: [CommonModule, ...materials],
+  exports: materials,
 })
-export class MaterialModule { }
+export class MaterialModule {}
