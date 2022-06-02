@@ -9,6 +9,10 @@ const routes: Routes = [
     component: RentalsAppComponent,
     children: [
       {
+        path: '',
+        redirectTo: 'dashboard',
+      },
+      {
         path: 'dashboard',
         component: DashboardComponent,
       },

@@ -35,4 +35,13 @@ export class AuthenticationService {
     localStorage.removeItem('timeStamp');
     this.router.navigate(['/login']);
   }
+
+  public isUserLoggedIn(): boolean {
+    const token = this.getCurrentUserToken();
+    if (token) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
