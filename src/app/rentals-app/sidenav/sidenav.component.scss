@@ -1,12 +1,12 @@
 .sidenav {
-  background: #263238;
+  background: #343a40;
   transition: all 0.5s ease;
   position: fixed;
   z-index: 1;
   top: 0;
   width: 5rem;
   height: 100vh;
-  box-shadow: 0.063rem 01.25rem#8690a3;
+  //box-shadow: 0.063rem 01.25rem#8690a3;
 }
 
 .logo-container {
@@ -41,6 +41,7 @@
     border-radius: 50%;
     background-color: transparent;
     border: none;
+    color: #fff;
 
     .fa-times {
       color: #fff;

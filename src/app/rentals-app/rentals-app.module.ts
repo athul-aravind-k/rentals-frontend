@@ -8,9 +8,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
 import { AppBodyComponent } from './app-body/app-body.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-  declarations: [RentalsAppComponent, SidenavComponent, AppBodyComponent, DashboardComponent],
+  declarations: [RentalsAppComponent, SidenavComponent, AppBodyComponent, DashboardComponent, HeaderComponent],
   imports: [
     CommonModule,
     FormsModule,

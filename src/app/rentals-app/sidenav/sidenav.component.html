@@ -8,7 +8,7 @@
       *ngIf="collapsed"
       (click)="closeSideNav()"
     >
-      <i class="fal fa-times close-icon"> </i>
+      <i class="fa-solid fa-xmark"></i>
     </button>
   </div>
   <ul class="sidenav-nav">
@@ -16,6 +16,8 @@
       <a
         class="sidenav-nav-link"
         [routerLink]="[data.routerLink]"
+        matTooltip="{{ data.label }}"
+        matTooltipPosition="right"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
       >

@@ -68,7 +68,7 @@ export class SidenavComponent implements OnInit {
   navBarData = [
     {
       routerLink: 'dashboard',
-      icon: 'fal fa-home',
+      icon: 'fa-solid fa-house-user',
       label: 'Dashboard',
     },
   ];
