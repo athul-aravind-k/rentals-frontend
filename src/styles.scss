@@ -77,3 +77,21 @@ body {
     padding: 1rem 1.5rem;
   }
 }
+
+.form-error-message {
+  padding: 0;
+  color: red;
+}
+.tooltip-red {
+  background: #b71c1c;
+}
+.x-form-field {
+  font-size: 12px;
+}
+mat-form-field label {
+  font-size: 13px !important;
+}
+
+mat-form-field.mat-form-field-should-float label {
+  font-size: 13px !important;
+}

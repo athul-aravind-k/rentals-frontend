@@ -1,9 +1,9 @@
 export function getErrorMessage(errorMessage: any): string {
   if (errorMessage) {
     if (errorMessage.required == true) {
-      return 'is required';
+      return 'This is a Required Field';
     } else if (errorMessage.email == true) {
-      return 'is not a valid email';
+      return 'This is Not a Valid Email';
     } else {
       return '';
     }

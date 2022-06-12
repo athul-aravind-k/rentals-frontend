@@ -1,18 +1,22 @@
-<div class="mb-3">
+<div class="x-form-field">
   <mat-form-field
     appearance="outline"
     [ngClass]="{
       'mat-form-field-invalid': errors
     }"
   >
+    <mat-label>{{ label }}</mat-label>
     <input
       matInput
+      matTooltip="{{ errors }}"
+      matTooltipClass="tooltip-red"
       [type]="type ? type : 'text'"
       [disabled]="disabled"
       [placeholder]="placeholder"
+      label="label"
       [readonly]="readOnly"
+      [formControl]="textInputFormControl"
       (input)="change()"
     />
   </mat-form-field>
-  <div class="invalid" *ngIf="errors">{{ errors }}</div>
 </div>
