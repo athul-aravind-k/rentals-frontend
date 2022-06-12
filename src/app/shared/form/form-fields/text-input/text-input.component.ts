@@ -58,7 +58,6 @@ export class TextInputComponent implements OnChanges, ControlValueAccessor {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes);
     if (changes['errorMessages']) {
       this.errors = getErrorMessage(this.errorMessages);
     }
