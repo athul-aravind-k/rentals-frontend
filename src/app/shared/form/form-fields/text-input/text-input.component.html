@@ -1,0 +1,18 @@
+<div class="mb-3">
+  <mat-form-field
+    appearance="outline"
+    [ngClass]="{
+      'mat-form-field-invalid': errors
+    }"
+  >
+    <input
+      matInput
+      [type]="type ? type : 'text'"
+      [disabled]="disabled"
+      [placeholder]="placeholder"
+      [readonly]="readOnly"
+      (input)="change()"
+    />
+  </mat-form-field>
+  <div class="invalid" *ngIf="errors">{{ errors }}</div>
+</div>

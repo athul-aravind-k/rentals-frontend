@@ -11,12 +11,14 @@ import { NgToastModule } from 'ng-angular-popup';
 import { LoaderInterceptor } from './core/loader/loader.interceptor.service';
 import { LoaderService } from './core/loader/loader.service';
 import { LoaderComponent } from './core/loader/loader.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, LoaderComponent],
   imports: [
     BrowserModule,
     MaterialModule,
+    FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,

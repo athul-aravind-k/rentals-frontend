@@ -9,15 +9,23 @@ import { MaterialModule } from '../material/material.module';
 import { AppBodyComponent } from './app-body/app-body.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderComponent } from './header/header.component';
+import { FormModule } from '../shared/form/form.module';
 
 @NgModule({
-  declarations: [RentalsAppComponent, SidenavComponent, AppBodyComponent, DashboardComponent, HeaderComponent],
+  declarations: [
+    RentalsAppComponent,
+    SidenavComponent,
+    AppBodyComponent,
+    DashboardComponent,
+    HeaderComponent,
+  ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
     RentalsAppRoutingModule,
+    FormModule,
   ],
 })
 export class RentalsAppModule {}
