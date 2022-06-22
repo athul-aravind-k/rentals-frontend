@@ -12,11 +12,7 @@ import {
   OnInit,
   HostListener,
 } from '@angular/core';
-
-interface SideNavToggle {
-  screenWidth: number;
-  collapsed: boolean;
-}
+import { SideNavToggle } from './sideNav.model';
 
 @Component({
   selector: 'app-sidenav',
@@ -47,6 +43,9 @@ interface SideNavToggle {
   ],
 })
 export class SidenavComponent implements OnInit {
+  public selectedIcon: string;
+  public showMenu: boolean;
+
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   public collapsed = false;
   screenWidth = 0;
@@ -87,5 +86,19 @@ export class SidenavComponent implements OnInit {
       collapsed: this.collapsed,
       screenWidth: this.screenWidth,
     });
+  }
+
+  public itemClicked(label: string): void {
+    this.showMenu = true;
+    this.selectedIcon = label;
+    this.collapsed = false;
+    this.onToggleSideNav.emit({
+      collapsed: this.collapsed,
+      screenWidth: this.screenWidth,
+    });
+  }
+
+  public menuSelected(): void {
+    this.showMenu = false;
   }
 }

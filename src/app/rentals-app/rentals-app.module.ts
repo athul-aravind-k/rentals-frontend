@@ -10,6 +10,7 @@ import { AppBodyComponent } from './app-body/app-body.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderComponent } from './header/header.component';
 import { FormModule } from '../shared/form/form.module';
+import { MenuSelectorComponent } from './sidenav/menu-selector/menu-selector.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormModule } from '../shared/form/form.module';
     AppBodyComponent,
     DashboardComponent,
     HeaderComponent,
+    MenuSelectorComponent,
   ],
   imports: [
     CommonModule,

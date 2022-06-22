@@ -1,5 +1,4 @@
 .sidenav {
-  background: #343a40;
   transition: all 0.5s ease;
   position: fixed;
   z-index: 1;
@@ -7,6 +6,18 @@
   width: 5rem;
   height: 100vh;
   //box-shadow: 0.063rem 01.25rem#8690a3;
+}
+
+.container-sidenav {
+  transition: all 0.5s ease;
+  width: 5rem;
+  height: 100vh;
+  position: fixed;
+  z-index: 1;
+  top: 3.65rem;
+}
+.container-sidenav-open {
+  width: 10rem;
 }
 
 .logo-container {

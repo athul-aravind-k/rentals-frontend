@@ -1,31 +1,50 @@
-<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
-  <div class="logo-container">
-    <button class="logo" (click)="toggleSideNav()">R</button>
-    <div class="logo-text" @fadeInOut *ngIf="collapsed">Rentals</div>
-    <button
-      class="btn-close"
-      @rotate
-      *ngIf="collapsed"
-      (click)="closeSideNav()"
-    >
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-  </div>
-  <ul class="sidenav-nav">
-    <li class="sidenav-nav-item" *ngFor="let data of navBarData">
-      <a
-        class="sidenav-nav-link"
-        [routerLink]="[data.routerLink]"
-        matTooltip="{{ data.label }}"
-        matTooltipPosition="right"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
+<div
+  class="container-sidenav"
+  [ngClass]="showMenu ? 'container-sidenav-open' : ''"
+>
+  <div class="row">
+    <div class="col-sm">
+      <div
+        class="sidenav primary-color"
+        [ngClass]="collapsed ? 'sidenav-collapsed' : ''"
       >
-        <i class="sidenav-link-icon" [class]="data.icon"></i>
-        <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">{{
-          data.label
-        }}</span>
-      </a>
-    </li>
-  </ul>
+        <div class="logo-container">
+          <button class="logo" (click)="toggleSideNav()">R</button>
+          <div class="logo-text" @fadeInOut *ngIf="collapsed">Rentals</div>
+          <button
+            class="btn-close"
+            @rotate
+            *ngIf="collapsed"
+            (click)="closeSideNav()"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <ul class="sidenav-nav">
+          <li class="sidenav-nav-item" *ngFor="let data of navBarData">
+            <a
+              class="sidenav-nav-link"
+              [routerLink]="[data.routerLink]"
+              matTooltip="{{ data.label }}"
+              matTooltipPosition="right"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              (click)="itemClicked(data.label)"
+            >
+              <i class="sidenav-link-icon" [class]="data.icon"></i>
+              <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">{{
+                data.label
+              }}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm" *ngIf="showMenu">
+      <menu-selector
+        [selectedItem]="selectedIcon"
+        (clickEvent)="menuSelected()"
+      ></menu-selector>
+    </div>
+  </div>
 </div>

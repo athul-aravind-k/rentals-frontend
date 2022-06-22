@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
+import { SideNavToggle } from './sidenav/sideNav.model';
 
-interface SideNavToggle {
-  screenWidth: number;
-  collapsed: boolean;
-}
 @Component({
   selector: 'rentals-app',
   templateUrl: './rentals-app.component.html',

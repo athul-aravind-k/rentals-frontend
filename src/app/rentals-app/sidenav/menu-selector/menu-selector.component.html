@@ -1,0 +1,15 @@
+<div class="body primary-color-light" *ngIf="showMenuSelector">
+  <ul class="menu-selector-nav">
+    <li class="menu-item" *ngFor="let item of menuList">
+      <a
+        class="menu-link"
+        [routerLink]="item.path"
+        matTooltip="{{ item.label }}"
+        matTooltipPosition="right"
+        (click)="menuClick()"
+      >
+        <i class="menu-icon" [class]="item.iconClass"> </i>
+      </a>
+    </li>
+  </ul>
+</div>
