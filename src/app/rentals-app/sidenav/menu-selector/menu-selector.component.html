@@ -1,4 +1,13 @@
 <div class="body primary-color-light" *ngIf="showMenuSelector">
+  <div class="title secondary-text text-right">
+    <i
+      class="fa-solid fa-circle-arrow-left p-2 cursor-pointer"
+      (click)="closeMenu()"
+    ></i>
+    <span class="pr-3">{{ selectedItem }}</span>
+    <hr class="secondary-color divider mx-1" />
+  </div>
+
   <ul class="menu-selector-nav">
     <li class="menu-item" *ngFor="let item of menuList">
       <a
@@ -10,6 +19,7 @@
       >
         <i class="menu-icon" [class]="item.iconClass"> </i>
       </a>
+      <hr class="secondary-color mt-1 mx-1" />
     </li>
   </ul>
 </div>

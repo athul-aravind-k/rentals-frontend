@@ -41,4 +41,7 @@ export class MenuSelectorComponent implements OnInit, OnChanges {
   public menuClick(): void {
     this.clickEvent.emit(false);
   }
+  public closeMenu(): void {
+    this.clickEvent.emit(false);
+  }
 }
