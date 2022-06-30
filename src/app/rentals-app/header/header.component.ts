@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from './../../core/auth/authentication.service';
 import { LoaderService } from './../../core/loader/loader.service';
+import { PopupDialogService } from './../../shared/dialog-pop-up/popup-dialog.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private authService: AuthenticationService,
-    private loaderService: LoaderService
+    private loaderService: LoaderService,
+    private dialog: PopupDialogService
   ) {
     this.loaderService.isLoading.subscribe((loadingStatus) => {
       this.loading = loadingStatus;
@@ -22,7 +24,16 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {}
 
   public logOut(): void {
-    // add a dialog box here
-    this.authService.logout();
+    const warning = this.dialog.openDialog(
+      'Log out',
+      'Are You Sure Want to Logout ?',
+      'logout',
+      'cancel'
+    );
+    warning.afterClosed().subscribe((status) => {
+      if (status) {
+        this.authService.logout();
+      }
+    });
   }
 }

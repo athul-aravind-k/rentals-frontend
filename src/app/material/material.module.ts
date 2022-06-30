@@ -34,6 +34,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 const materials = [
   CdkTreeModule,
@@ -42,6 +44,7 @@ const materials = [
   MatCardModule,
   MatCheckboxModule,
   MatChipsModule,
+  MatDialogModule,
   MatDividerModule,
   MatExpansionModule,
   MatIconModule,
@@ -69,6 +72,7 @@ const materials = [
   MatRadioModule,
   MatDatepickerModule,
   MatTooltipModule,
+  DragDropModule,
 ];
 
 @NgModule({

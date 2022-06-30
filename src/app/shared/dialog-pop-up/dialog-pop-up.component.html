@@ -1,0 +1,25 @@
+<mat-toolbar
+  cdkDrag
+  cdkDrag
+  cdkDragRootElement=".cdk-overlay-pane"
+  class="toolbar"
+>
+  <span>{{ inputData.title || "Warning" }}</span>
+  <span class="spacer"></span>
+  <button mat-icon-button class="ml-auto p-0" aria-label="close">
+    <mat-icon (click)="onReject()">close</mat-icon>
+  </button>
+</mat-toolbar>
+<div class="w-100 h-50 border text-center">
+  <p class="mt-3">
+    {{ inputData.message || "Are You Sure Want To Do This ?" }}
+  </p>
+</div>
+<div class="text-center">
+  <button class="mr-3 mt-3" color="warn" mat-raised-button (click)="onAccept()">
+    {{ inputData.accept || "yes" }}
+  </button>
+  <button class="mt-3" mat-raised-button (click)="onReject()" cdkFocusInitial>
+    {{ inputData.reject || "no" }}
+  </button>
+</div>

@@ -12,9 +12,10 @@ import { LoaderInterceptor } from './core/loader/loader.interceptor.service';
 import { LoaderService } from './core/loader/loader.service';
 import { LoaderComponent } from './core/loader/loader.component';
 import { FormsModule } from '@angular/forms';
+import { DialogPopUpComponent } from './shared/dialog-pop-up/dialog-pop-up.component';
 
 @NgModule({
-  declarations: [AppComponent, LoaderComponent],
+  declarations: [AppComponent, LoaderComponent, DialogPopUpComponent],
   imports: [
     BrowserModule,
     MaterialModule,
